@@ -1,5 +1,9 @@
-import createRouter from '~/routes';
+import { useSelector } from 'react-redux';
+
+import createRouter from './routes';
 
 export default function App() {
-  return createRouter();
+  const signed = useSelector((state) => state.auth.signed);
+
+  return createRouter(signed);
 }
